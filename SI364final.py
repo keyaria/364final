@@ -15,7 +15,7 @@ from werkzeug import secure_filename
 
 from flask_migrate import Migrate, MigrateCommand
 from werkzeug.security import generate_password_hash, check_password_hash
-from requests_oauthlib import OAuth2Session # need to pip install requests_oauthlib
+
 #Login import
 from flask_login import LoginManager, login_required, logout_user, login_user, UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
