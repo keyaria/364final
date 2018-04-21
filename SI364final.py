@@ -165,6 +165,9 @@ class CollectionCreateForm(FlaskForm):
 	name = StringField('Collection Name')
 	kanji_picks = SelectMultipleField('Kanji to include')
 	submit2 = SubmitField("Create Kanji List")
+	def validate_name(self,field):
+		if len((field.data)) <= 1:
+			raise ValidationError('name must be longer')
 
 class JournalCreateForm(FlaskForm):
 	name = StringField('Journal Name')
@@ -202,7 +205,7 @@ def grab_from_ka(kanji):
 	#param = {":character": kanji}
 	
 	headers={
-	"X-Mashape-Key": "A2hxIZpMOjmshMeDMlwbWhNzfSW1p1Si7m3jsnVUWIS0uME5H8"
+	"X-Mashape-Key": ""
   }
 	
 	search = (requests.get(url=url+kanji, headers=headers)).json()
@@ -239,7 +242,7 @@ def get_or_create_search_term(term):
 		example = lis['examples'][0]['japanese'] + ' ' + lis['examples'][0]['meaning']['english']
 		#for i in lis['kanji']:
 			#add the mp4
-		print(lis['kanji']['character'])
+		
 		i = get_or_create_kanji(lis['kanji']['character'],lis['kanji']['meaning']['english'], lis['kanji']['strokes']['count'],lis['kanji']['onyomi']['katakana'],lis['kanji']['kunyomi']['hiragana'],example)
 
 		ter.kanji.append(i)
