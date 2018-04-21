@@ -137,5 +137,6 @@ I completely changed the concept from my midterm.
 - [x]  (100 points) Create, run, and commit at least one migration.
 - [x] (100 points) Include file upload in your application and save/use the results of the file. (We did not explicitly learn this in class, but there is information available about it both online and in the Grinberg book.)
 - [x]  (100 points) Deploy the application to the internet (Heroku) — only counts if it is up when we grade / you can show proof it is up at a URL and tell us what the URL is in the README. (Heroku deployment as we taught you is 100% free so this will not cost anything.)
+- Heroku site link: http://myjapanese.herokuapp.com/
 - **[ ]  (100 points) Implement user sign-in with OAuth (from any other service), and include that you need a *specific-service* account in the README, in the same section as the list of modules that must be installed.**
 
