@@ -1,0 +1,118 @@
+ <!DOCTYPE html>
+<html>{% block head %}
+    <head>
+    	
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/materialize.min.css') }}">
+
+
+      
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     
+    </head>
+ {% endblock %}
+<body class="white" style=" display: flex;
+    min-height: 100vh;
+    flex-direction: column;">
+
+
+
+
+{% block lo %}
+  <div class="red lighten-5" style="height:50px;">
+    <div class="right">
+   {% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.name}}</a>
+    <img width='60px' src="{{url_for('static', filename="img/"+ current_user.profilimg)}}" alt="a fav image">
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+
+ 
+</div>
+  </div>
+{% endblock %}
+
+{% block imh %}
+  <div>
+    <img src= "{{url_for('static', filename='img/banner.png')}}" width="100%"/>
+ 
+  </div>
+{% endblock %}
+<header>
+{% block navbar %}
+<nav class=" z-depth-0 ">
+   <div class="nav-wrapper center-align">
+<ul class="center-align" style="margin: 0 auto;">
+  <li><a href="{{ url_for('index')}}">Home</a></li>
+
+  <li><a href="{{ url_for('create_journal')}}">Create a journal</a></li>
+  <li><a href="{{ url_for('journal_kanji')}}">Journals</a></li>
+
+</ul>
+  
+</div>
+</nav>
+{% endblock %}
+</header>
+
+<div class="main" style="flex: 1 0 auto;">
+<div class="container flow-text">
+{% block content %}
+<h1 class="center-align">こんにちは　みんなさん！</h1>
+<p>何を勉強しましたか。Here you can look up kanji and also put your thoughts(in japanese of course) online. Make lists for the kanji you need to study and you also can update entries to you jounal anytime. 行きましょう！</p>
+<br><br>
+
+</p>
+
+
+{% endblock %}
+
+
+{% block content2 %}
+
+{% endblock %}
+</div>
+</div>
+{% block footer %}
+
+       <footer class="page-footer grey grey darken-3">
+          
+            <div class="row">
+              <div class="col l6 s6">
+                <p class="white-text">Keyaria Walker</p>
+                
+   <!-- <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-github"></a>
+    <a href="#" class="fa fa-facebook-square"></a>-->
+              </div>
+              <div class="col l4 offset-l2 s6" >
+
+                 <p>日本語を勉強する</p>
+
+              </div>
+              
+            </div>
+         
+
+        </footer>
+
+{% endblock %}
+<script src="//code.jquery.com/jquery-2.1.2.min.js"></script><script src="{{ url_for('static',filename='js/materialize.js') }}"></script>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/materialize.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+       
+</script>
+</body>
+</html>

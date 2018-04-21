@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="row">
+<h1>日記を書きましょう！</h1>
+<p> Here you can write down or create a list of kanji</p>
+<p class="flow-text">Example Journal: アメリカのジャズ<br>
+ 1900年代の初めにアメリカでジャズを開発しました。ジャズに関しては西アフリカの民族音楽とヨーロッパのクラシック音楽とヨーロッパのクラシック音楽の特性に影響しました。1910年代の後半から1940年代にかけてジャズは人気がありました。その時、新しいジャズミュージシャンがいればいるほど、ジャズで即興のスタイルは急に人気がありました。第一次世界大戦から第二次世界大戦までヨーロッパでジャズが普及しました。したがって、ジャズミュージシャンのアフリカ系アメリカ人は国際的な機会を得ました。1950年代の後半から1960年代の後半にかけてジャズはだんだん減らしましたが、後で他の音楽を始めたジャンルが影響しました。例えば、ロックンロールやディスコやリズムとブルースなど影響に現れました。ジャズなしで多くジャンルはまったく別かもしれません。</p>
+</div>
+{% endblock %}
+{% block content2 %}
+<div class="row">
+<form action="" method="POST">
+	
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+	{{ form.text.label }} {{ form.text() }}
+
+	<button class=" red lighten-2 btn waves-effect waves-light">{{ form.submit1() }}</button>
+</form>
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+<br>
+  <div class="divider"></div>
+  <h2>Kanji list</h2>
+<form action="" method="POST">
+	
+	{{ form2.hidden_tag() }}
+	{{ form2.name.label }} {{ form2.name() }}
+	<div>
+	{{ form2.kanji_picks.label }} {{ form2.kanji_picks() }}
+		<br>
+	</div>
+	<button class=" red lighten-2 btn waves-effect waves-light">{{ form2.submit2() }}</button>
+</form>
+
+</div>
+
+{% endblock %}

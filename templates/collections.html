@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+{% block content %}
+<h1>My collections</h1>
+{% endblock %}
+{% block content2 %}
+<div class="row">
+	<div class="col s5">
+		<h3>Journal Entries</h3>
+<ul>
+{% for c in collections %}
+    <h3><li><a href="/journal/{{ c.id }}">{{ c.title }}</a></h3>
+	<form method="POST" action="/delete/{{ c.title }}">
+	   {{ form.hidden_tag() }}
+     <button class=" red lighten-2 btn waves-effect waves-light">{{ form.submit() }}</button>
+   </form>
+    </li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="col s5">
+	<h3>Kanji Lists</h3>
+<ul>
+{% for i in kj_col %}
+    <li><a href="/kanjilist/{{ i.id }}">{{ i.name }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+{% endblock %}

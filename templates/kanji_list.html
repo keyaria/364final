@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block content %}
+<h1 class="center-align">{{ kanji_col.name }}</h1>
+ <p class="center-align" style="word-spacing: 50px">
+{% for sg in kanji %}
+
+     <strong>{{ sg.character }}</strong>
+   
+      
+ 
+{% endfor %}
+ </p>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="center-align">Login</h1>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.email.label }} {{ form.email() }}
+	{{ form.password.label }} {{ form.password() }}
+	<button class="btn waves-effect waves-light pink lighten-3" type="submit" name="action">
+	{{ form.submit() }}
+	</button>
+</form>
+
+<p>New user?
+<a href="{{ url_for('register') }}">Click here to register</a> </p>
+
+{% endblock %}

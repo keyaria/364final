@@ -1,0 +1,46 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function runAJAX () {
+	$.ajax({
+	  url: "/ajax",
+		dataType: "json"
+	}).done(function( data ) {
+			$.each(data.manga, function(index, value) {
+	    $("<p>"+ value.name + "</p>").appendTo($('#aj'))
+			});
+	  });
+	}
+</script>
+{% extends 'base.html' %}
+
+{% block content2 %}
+<div class="row">
+<div  class="col s4">
+<form action="{{ url_for('search_results') }}" method="GET" >
+	{{ form.hidden_tag() }}
+	{{ form.search.label }} {{ form.search() }}
+	<button class=" red lighten-2 btn waves-effect waves-light">{{ form.submit() }}</button>
+</form>
+<div id="aj">
+<button onClick="runAJAX()" class=" red lighten-2 btn waves-effect waves-light">Popular manga to read</button>
+</div>
+</div>
+<div class="col s7">
+	<h3> Searched kanji by Users</h3>
+	{% for i in terms %}
+		{{i.term}}
+	{% endfor %}
+	<h3>Example Kanji</h3>
+	<p> 一 九 七 二 人 入 八 力 十 下 三 千 上 口 土 夕 大 女 子 小 山 川 五 天 中 六 円 手 文 日 月 木 水 火 犬 王 正 出 本 右 四 左 玉 生 田 白 目 石 立 百 年 休 先 名 字 早 気 竹 糸 耳 虫 村 男 町 花 見 貝 赤 足 車 学 林 空 金 雨 青 草 音 校 森</p>
+</div>
+</div>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+<br><br>
+{% endblock %}
+

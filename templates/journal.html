@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div>
+	
+   <h1 class="center-align"> {{ collection.title }}</h1>
+   <p class="flow-text"> {{ collection.text }} </p>
+    <form method="POST" action="/update/{{ collection.text}}">
+	   {{ form.hidden_tag() }}
+     <p class="center-align"><button class=" red lighten-2 btn waves-effect waves-light">{{ form.submit() }}</button></p>
+   </form>
+</div>
+
+
+{% endblock %}

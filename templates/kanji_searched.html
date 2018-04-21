@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+<h1>Search results for {{ term.term }}</h1>
+
+{% block content %}
+
+
+{% for i in kan %}
+	<div class="container center-align">
+  <h1>{{ i.character }}</h1>
+  Meaning:<h4>{{ i.meaning }}</h4>
+  Number of Strokes:<h4>{{ i.strokes }}</h4>
+  Onyomi:<h4>{{ i.onyomi }}</h4>
+  Kunyomi:<h4>{{ i.kunyomi }}</h4>
+  Example: <h4>{{ i.example}}</h4>
+  </br>
+  
+</div>
+
+<br>
+{% endfor %}
+
+
+{% if not kan %}
+There are no saved kanji to show.
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}
