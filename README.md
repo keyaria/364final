@@ -50,7 +50,6 @@ I completely changed the concept from my midterm.
 
 ## Requirements to complete for 2880 points (90%) -- an awesome, solid app
 
-### Note that I've bolded AND checked off all of the requirements I DID complete, and left alone the requirements that I did not, in a clear, readable way TODO TODO TODO
 
 ### **Documentation README Requirements**
 
