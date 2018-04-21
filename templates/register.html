@@ -15,9 +15,11 @@
 
     {{ form.password.label }} {{ form.password() }}
     {{ form.password2.label }} {{ form.password2() }}
-    {{ form.file }}
+    Upload Profile Picture: {{ form.file }}
+    <br>
 	<button class="btn waves-effect waves-light pink lighten-3" type="submit" name="action">
-	{{ form.submit() }}
+	<p>{{ form.submit() }}</p>
 	</button>
+	<br>
 </form>
 {% endblock %}
