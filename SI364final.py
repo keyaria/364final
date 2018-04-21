@@ -44,7 +44,10 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login"
 login_manager.session_protection = "strong"
 
-
+def make_shell_context():
+    return dict(app=app, db=db, User=User, Kanji=Kanji, KanjiCollection=KanjiCollection, Journal=Journal,Search=Search)
+# Add function use to manager
+manager.add_command("shell", Shell(make_context=make_shell_context))
 #Assoiation tables
 search_kan = db.Table('search_kanji', db.Column('kanji_id', db.Integer, db.ForeignKey('Kanji.id')), db.Column('search_terms_id', db.Integer, db.ForeignKey('Search.id')))
 
